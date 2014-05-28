@@ -1,0 +1,189 @@
+#If you are viewing this file in a text editor that does not
+#properly display YAML formatting, be very, very careful when
+#reading and editing. Looking for an editor with YAML formatting?
+#I use notepad++. Google it.
+
+#==============================================================
+# Contents:
+#  - Config Info
+#  - Plugin information, do not modify
+#  - Configuration Options
+#  - Translation
+#==============================================================
+#  - Config Info -
+#All Configuration Options should be "true" or "false".
+#Do not capitalize "true" or "false".
+
+#If you break the config and don't know what to do, save this
+#file to your desktop, delete the config.yml found in your server,
+#and reload or restart your server. A new one will generate,
+#and you can copy your old settings back into the freshly
+#generated file.
+#==============================================================
+#  - Plugin Information -
+information:
+    #Do not modify "configVersion". This is how HorseStats knows if
+    #you need to regen a new config. If you change this, your config
+    #may not work and might break the plugin.
+    configVersion: 3.02
+    #Do not modify this. This is not used by the plugin itself, but
+    #is here for you to know what CraftBukkit version HorseStats can
+    #run on without entering "cripple mode".
+    HorseStats Is Running: craftbukkit-1.7.9-R0.1
+#==============================================================
+#  - Configuration Options -
+#Quick note regarding a new setting and its relationship to others:
+#saddleLock and nonOwnerHorseInteraction are two different mechanisms.
+#Read this carefully and make sure you set it up as you really want it.
+
+#nonOwnerHorseInteraction, when set to false, will nullify any and every
+#attempt to right click a horse by someone who is not the owner. saddleLock,
+#when set to true, will nullify any attempts to right click a horse
+#by someone who is not the owner, IF, the horse has a saddle on.
+
+#Alright, now to config options.
+options:
+    #Allow the plugin to check for updates at startup?
+    #If an update is available, HorseStats will notify you in the
+    #console when the plugin is enabled.
+    allowUpdateChecks: true
+    #Allow horses to be killable by players who don't own them?
+    #When false, this will block melee and arrows of non-owners.
+    horseGrief: false
+
+    #Allow use of the "launch" argument for /slayhorse?
+    horseLaunch: true
+
+    #Should saddled horses be only accessible by their owners,
+    #and unsaddled horses accessible to anyone?
+    saddleLock: true
+
+    #Should someone be able to interact with a horse that is not theirs?
+    nonOwnerHorseInteraction: true
+
+    #Should horses be able to teleport between worlds?
+    #IMPORTANT: Initial testing showed that horse data for the entire
+    #server could be lost if this is allowed.
+    allowMultiWorldTeleport: false
+#==============================================================
+#  - Translation -
+#This section contains every translatable string of text in HorseStats.
+
+#If you want HorseStats to appear in a language other than English,
+#this is where you change things. If you are fine with English,
+#leave this alone. 
+
+#Simply translate the text after each node into whatever language
+#you want. As long as you do not modify the node, there is no wrong
+#way to do this.
+
+#Sorry, but console log messages will still be hard coded as English.
+
+#Begin Translate Strings
+translate:
+    #Main classes
+    message:
+        #Preset error messages.
+        #"riding" appears again later. Keep in mind that this one is saying that the player MUST ride the horse.
+        riding: "You must be riding the horse you want to use this on!"
+        perms: "You do not have permissions for this command."
+        attack: "You cannot hurt another player's horse."
+        owner: "You must be the owner of the horse to do this."
+        style_params: "Bad arguments; use '/setstyle ?' to see arguments and usage."
+        player: "The specified player was not found."
+        console: "Commands cannot be used in console!"
+    horseStatsCommand:
+        #These are the help messages that show when one of these commands are improperly used.
+        hspawn: "/hspawn <donkey|mule>. To spawn a horse, do not add an argument."
+        setowner: "/setowner <player>"
+        setstat: "/setstat <jump|health> <value>. Health is measured in hearts. Jump is measured in blocks."
+    #Command classes
+    delchest: "Chest deleted."
+    delname: "Custom name erased."
+    horsestats:
+        dialogue0: "Stat Display"
+        dialogue1: "Grab a lead and punch a horse to return a list of statistics:"
+        dialogue2: "-MaxHealth -Health -Jump Height -Speed (Blocks per Second)"
+        dialogue3: "-Can Breed -Is Adult -Owner"
+        dialogue4: "Noteworthy Things:"
+        dialogue5: "1) Horses will NOT take damage from the punch"
+        dialogue6: "2) Speed and jump values are not infinitely precise."
+        dialogue7: "Horse Teleporting"
+        dialogue8: "Grab an ender pearl and punch a horse to select it. The damage will be canceled, and the horse will be selected for teleporting. To teleport the horse, use '/htp' at the desired destination and the horse will teleport to you."
+        dialogue9: "To see HorseStats commands, use '/help horsestats'. If this does not work, contact an administrator."
+        #A temporary string until everyone is aware of this issue.
+        ownershipNotice: "An old issue with tame but un-owned horses has been brought back by 1.7.9. If horses on this server are tamed, but not owned, hit them with leads and they will be untamed. Unfortunately, you will have to re-tame any affected horses."
+    hspawn:
+        horse: "Horse spawned successfully."
+        donkey: "Donkey spawned successfully."
+        mule: "Mule spawned successfully."
+        close: "Another entity is too close by, and the horse could not be spawned. Be sure there is at least two blocks between you and nearby mobs, paintings, itemframes, and leads."
+        #Don't confuse this with the first "riding"; this is telling someone that they CANNOT ride a horse and do this.
+        riding: "You cannot be riding a horse while you use this command!"
+    htp:
+        selected: "No horse has been selected!"
+        disabled: "Teleporting between worlds is disabled."
+        success: "Teleporting..."
+        fail: "Teleport failed."
+    setowner: "Owner changed successfully."
+    setstat:
+        change0: "Horse's health has been set to"
+        change1: "hearts."
+        jump: "Horses cannot jump higher than 22 blocks."
+        set0: "Horse's jump height has been set to"
+        set1: "blocks."
+    setstyle:
+        horses: "Only horses can be modified."
+        help0: "Help for /setstyle"
+        help1: "Usage: /setstyle <color|style> <value>"
+        #The actual values cannot be translated, as HorseStats is expecting those exact strings.
+        help2: "Values for styles:"
+        help3: "Values for color:"
+    slayhorse:
+        launch: "♫ He's a magical pony, flying through the sky--shoot it down. *boom*"
+        slay: "Horse slain."
+    tame:
+        new: "You now own this horse."
+        old: "You already own this horse."
+    untame: "This horse is no longer tamed."
+    #Event listener classes
+    notification:
+        #Also a temporary string until everyone is aware of this issue. This displays when a player joins.
+        ownership: "Please use /horsestats to view an important message regarding horse ownership."
+        config: "The HorseStats config is out of date. Details can be found in the console when the plugin started."
+        cripple: "HorseStats is running in cripple mode. Details can be found in the console when the plugin started."
+    listener:
+        #This is permanent. This feature will remain, but the annoying notifications will go away soon.
+        correction: "This horse was found to be tamed, but the owner returned 'none'. It is now fully untamed."
+        #All of the below appear on the stat display. Unfortunately, "true" and "false" are raw values and cannot be translated.
+        #Do not add spaces after the colons, at the beginning of the first word in a line, or at the end of the last word in a line.
+        #The spaces are hard coded in.        
+        horse: "Horse"
+        stats: "Stats"
+        #If a horse has a name, this is put on the end to indicate posession of the stats to the horse. In English, 's is added
+        #directly to the end of a person's name to show posession. As you just read, "name" is posessed by "person". If your
+        #language does not support this, or have a way of doing this that works, you can simply leave this as empty quotes.
+        #An example: A horse, we'll call him Jerry. Normally this would be "Jerry's Stats". If we make "possesive" just empty
+        #quotes, it turns into "Jerry Stats". Still makes sense.
+        possesive: "'s"
+        adult: "Is Adult:"
+        minutes: "Minutes Until Adult:"        
+        maxhealth: "Max Health:"
+        health: "Health:"
+        hearts: "hearts"
+        jump: "Jump Height (Blocks):"
+        speed: "Speed (Blocks per Second):"
+        speederror: "Speed could not be loaded."
+        breed: "Can Breed:"
+        teleport: "Is Selected For Teleport:"
+        #The "owner" node is used when a horse has an owner. In the code, the player name is added after whatever you put here.
+        #Do not add a space after the colon, this is hard coded in. The "ownerless" node is used when a horse has no owner.
+        #It does not use the player's name, and displays solely what is assigned to the node.
+        owner: "Owner:"
+        ownerless: "Owner: None"
+        #Now we're done with things on the stat display.
+        deselect: "Horse deselected for teleport."
+        select: "Horse selected for teleport."
+        #These last two are different from the previous "untame" and "owner". These are in regard to teleport selection.
+        untame: "You cannot select an untamed horse for teleporting!"
+        owner: "You cannot select someone else's horse for teleporting!"
